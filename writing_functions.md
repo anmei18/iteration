@@ -53,11 +53,11 @@ x_vec = rnorm(25,mean = 5, sd = 4)
 (x_vec - mean(x_vec)) / sd(x_vec)
 ```
 
-    ##  [1] -0.62027259 -0.81870159 -0.19937099  0.60304224 -0.29517281  0.48034356
-    ##  [7]  1.36951209 -1.82770248  0.72158435  0.74790472  1.22552736  0.28465879
-    ## [13]  0.02561691 -2.30561360  0.13554001 -1.49678612  0.31088617  0.85210289
-    ## [19] -1.23574416  0.22542122  0.01758242  0.91167007  0.58090169  1.40907637
-    ## [25] -1.10200653
+    ##  [1]  0.23903117 -0.34844162  0.61240065  1.53808226 -1.76558141 -0.73931921
+    ##  [7]  1.29232495 -0.91450744  1.00170100 -3.04128200 -0.76503806  0.46836735
+    ## [13] -0.45069278  0.84726338  0.40144010 -0.05338857 -0.82510902 -0.55469626
+    ## [19]  0.70820656 -0.10453249  0.63382031  0.31554517  0.54800456  0.41474773
+    ## [25]  0.54165366
 
 ``` r
 z_scores = function(x) {
@@ -71,24 +71,24 @@ z_scores = function(x) {
 z_scores(x = x_vec)
 ```
 
-    ##  [1] -0.62027259 -0.81870159 -0.19937099  0.60304224 -0.29517281  0.48034356
-    ##  [7]  1.36951209 -1.82770248  0.72158435  0.74790472  1.22552736  0.28465879
-    ## [13]  0.02561691 -2.30561360  0.13554001 -1.49678612  0.31088617  0.85210289
-    ## [19] -1.23574416  0.22542122  0.01758242  0.91167007  0.58090169  1.40907637
-    ## [25] -1.10200653
+    ##  [1]  0.23903117 -0.34844162  0.61240065  1.53808226 -1.76558141 -0.73931921
+    ##  [7]  1.29232495 -0.91450744  1.00170100 -3.04128200 -0.76503806  0.46836735
+    ## [13] -0.45069278  0.84726338  0.40144010 -0.05338857 -0.82510902 -0.55469626
+    ## [19]  0.70820656 -0.10453249  0.63382031  0.31554517  0.54800456  0.41474773
+    ## [25]  0.54165366
 
 ``` r
 y_vec = rnorm(40, mean = 12, sd = .3)
 z_scores(x = y_vec)
 ```
 
-    ##  [1]  1.95689736  0.03880784 -0.26618273 -0.73319610 -1.14332911  1.31746510
-    ##  [7]  0.97860978  1.20685112 -0.16382206  1.56891722 -0.99163386 -0.35462196
-    ## [13] -0.74500268 -0.34271664  0.43220583  0.40974501  1.41378977  1.11342475
-    ## [19] -0.04198166 -1.44084429  1.18447885 -0.09603521 -1.26020113  0.77904276
-    ## [25]  0.67983889  0.42244073  0.78090181  0.77089576  0.09689911 -1.68525243
-    ## [31] -1.54738909 -1.15152665 -0.75158202  0.72148087  0.64635535 -1.59640951
-    ## [37]  0.34925701 -1.18894423 -1.23982082 -0.12781271
+    ##  [1]  1.4922651  1.2596036 -1.4776877 -1.8084390  0.4874585 -1.3530138
+    ##  [7] -0.4154192  0.3860172 -1.4834795  0.2498590  0.4468829  1.1620955
+    ## [13] -1.1256077  0.3840310  0.3270431 -1.0652073  1.2730578 -0.6292500
+    ## [19]  0.2175511 -0.8327925  0.8315643  1.6596906  0.7335456  0.9412061
+    ## [25]  0.1303114  0.7070990  0.7565176  0.1320549 -0.5292226 -0.2636893
+    ## [31] -2.3447733 -1.3994085  0.6051060  1.4125018 -0.4719865  0.4090063
+    ## [37]  0.7004495 -0.9459078 -0.4211158 -0.1379174
 
 How great is this? Only kinda great. Let’s try again.
 
@@ -202,7 +202,7 @@ mean_and_sd(y_vec)
     ## # A tibble: 1 × 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  12.0 0.315
+    ## 1  12.0 0.274
 
 ``` r
 mean_and_sd(x_vec)
@@ -211,7 +211,7 @@ mean_and_sd(x_vec)
     ## # A tibble: 1 × 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  3.85  2.80
+    ## 1  4.21  4.05
 
 ## Different sample sizes, means, sds
 
@@ -231,7 +231,7 @@ sim_data %>%
     ## # A tibble: 1 × 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  2.09  2.63
+    ## 1  1.54  2.90
 
 Let’s write a function that simulates data, computes the mean and sd.
 
@@ -261,4 +261,245 @@ sim_mean_sd(30,40,3)
     ## # A tibble: 1 × 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  39.8  2.12
+    ## 1  40.0  2.86
+
+## Napolean Dynamite
+
+``` r
+url = "https://www.amazon.com/product-reviews/B00005JNBQ/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=1"
+
+dynamite_html = read_html(url)
+
+review_titles = 
+  dynamite_html %>%
+  html_elements(".a-text-bold span") %>%
+  html_text()
+
+review_stars = 
+  dynamite_html %>%
+  html_elements("#cm_cr-review_list .review-rating") %>%
+  html_text()
+
+review_text = 
+  dynamite_html %>%
+  html_elements(".review-text-content span") %>%
+  html_text()
+
+reviews = 
+  tibble(
+    title = review_titles,
+    stars = review_stars,
+    text = review_text
+  )
+```
+
+Okay but there are a lot of pages of reviews..
+
+Write a function that gets reviews based on page url
+
+``` r
+get_page_reviews = function(page_url) {
+  
+  page_html = read_html(page_url)
+
+  review_titles = 
+    page_html %>%
+    html_elements(".a-text-bold span") %>%
+    html_text()
+  
+  review_stars = 
+    page_html %>%
+    html_elements("#cm_cr-review_list .review-rating") %>%
+    html_text()
+  
+  review_text = 
+    page_html %>%
+    html_elements(".review-text-content span") %>%
+    html_text()
+  
+  reviews = 
+    tibble(
+      title = review_titles,
+      stars = review_stars,
+      text = review_text
+    )
+  
+  return(reviews)
+  
+}
+
+# page 1 (change the number at the end):
+url = "https://www.amazon.com/product-reviews/B00005JNBQ/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=1"
+
+get_page_reviews(url)
+```
+
+    ## # A tibble: 10 × 3
+    ##    title                                                 stars   text           
+    ##    <chr>                                                 <chr>   <chr>          
+    ##  1 Good movie                                            5.0 ou… "\n  Weird sto…
+    ##  2 I Just everyone to know this....                      5.0 ou… "\n  VOTE FOR …
+    ##  3 the cobweb in his hair during the bike ramp scene lol 5.0 ou… "\n  5 stars f…
+    ##  4 Best quirky movie ever                                5.0 ou… "\n  You all k…
+    ##  5 Classic Film                                          5.0 ou… "\n  Had to or…
+    ##  6 hehehehe                                              5.0 ou… "\n  goodjobbo…
+    ##  7 Painful                                               1.0 ou… "\n  I think I…
+    ##  8 GRAND                                                 5.0 ou… "\n  GRAND\n"  
+    ##  9 Hello, 90s                                            5.0 ou… "\n  So nostal…
+    ## 10 Cult Classic                                          5.0 ou… "\n  Watched i…
+
+``` r
+# page 2:
+url = "https://www.amazon.com/product-reviews/B00005JNBQ/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=2"
+
+get_page_reviews(url)
+```
+
+    ## # A tibble: 10 × 3
+    ##    title                                       stars              text          
+    ##    <chr>                                       <chr>              <chr>         
+    ##  1 Format was inaccurate                       4.0 out of 5 stars "\n  There wa…
+    ##  2 Good funny                                  3.0 out of 5 stars "\n  Would re…
+    ##  3 Not available w/in 48 hour window           1.0 out of 5 stars "\n  I couldn…
+    ##  4 Your mom went to college.                   5.0 out of 5 stars "\n  Classic …
+    ##  5 Very funny movie                            5.0 out of 5 stars "\n  I watch …
+    ##  6 Watch it twice! Trust me!                   5.0 out of 5 stars "\n  Nothing …
+    ##  7 A classic                                   5.0 out of 5 stars "\n  If you d…
+    ##  8 Can't say how many times I've seen          5.0 out of 5 stars "\n  Such a g…
+    ##  9 I pity the fool who doesn’t own this movie. 5.0 out of 5 stars "\n  I love t…
+    ## 10 I don’t know why it’s so popular!           2.0 out of 5 stars "\n  My girlf…
+
+``` r
+# OR:
+
+base_url = "https://www.amazon.com/product-reviews/B00005JNBQ/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber="
+
+urls = str_c(base_url,1:5)
+
+get_page_reviews(urls[1])
+```
+
+    ## # A tibble: 10 × 3
+    ##    title                                                 stars   text           
+    ##    <chr>                                                 <chr>   <chr>          
+    ##  1 Good movie                                            5.0 ou… "\n  Weird sto…
+    ##  2 I Just everyone to know this....                      5.0 ou… "\n  VOTE FOR …
+    ##  3 the cobweb in his hair during the bike ramp scene lol 5.0 ou… "\n  5 stars f…
+    ##  4 Best quirky movie ever                                5.0 ou… "\n  You all k…
+    ##  5 Classic Film                                          5.0 ou… "\n  Had to or…
+    ##  6 hehehehe                                              5.0 ou… "\n  goodjobbo…
+    ##  7 Painful                                               1.0 ou… "\n  I think I…
+    ##  8 GRAND                                                 5.0 ou… "\n  GRAND\n"  
+    ##  9 Hello, 90s                                            5.0 ou… "\n  So nostal…
+    ## 10 Cult Classic                                          5.0 ou… "\n  Watched i…
+
+``` r
+get_page_reviews(urls[2])
+```
+
+    ## # A tibble: 10 × 3
+    ##    title                                       stars              text          
+    ##    <chr>                                       <chr>              <chr>         
+    ##  1 Format was inaccurate                       4.0 out of 5 stars "\n  There wa…
+    ##  2 Good funny                                  3.0 out of 5 stars "\n  Would re…
+    ##  3 Not available w/in 48 hour window           1.0 out of 5 stars "\n  I couldn…
+    ##  4 Your mom went to college.                   5.0 out of 5 stars "\n  Classic …
+    ##  5 Very funny movie                            5.0 out of 5 stars "\n  I watch …
+    ##  6 Watch it twice! Trust me!                   5.0 out of 5 stars "\n  Nothing …
+    ##  7 A classic                                   5.0 out of 5 stars "\n  If you d…
+    ##  8 Can't say how many times I've seen          5.0 out of 5 stars "\n  Such a g…
+    ##  9 I pity the fool who doesn’t own this movie. 5.0 out of 5 stars "\n  I love t…
+    ## 10 I don’t know why it’s so popular!           2.0 out of 5 stars "\n  My girlf…
+
+``` r
+get_page_reviews(urls[3])
+```
+
+    ## # A tibble: 10 × 3
+    ##    title                                         stars              text        
+    ##    <chr>                                         <chr>              <chr>       
+    ##  1 Okay                                          3.0 out of 5 stars "\n  Okay\n"
+    ##  2 A WHOLESOME comedic journey                   5.0 out of 5 stars "\n  Not a …
+    ##  3 Hilarious                                     5.0 out of 5 stars "\n  Funny\…
+    ##  4 Love it                                       5.0 out of 5 stars "\n  What o…
+    ##  5 WORTH IT!                                     5.0 out of 5 stars "\n  It's t…
+    ##  6 Funny movie.                                  5.0 out of 5 stars "\n  Great …
+    ##  7 Best movie ever!                              5.0 out of 5 stars "\n  Got th…
+    ##  8 I was stuck in the oil patch back in the day. 5.0 out of 5 stars "\n  I watc…
+    ##  9 Funny Dork humor                              5.0 out of 5 stars "\n  Humor …
+    ## 10 Still funny!                                  5.0 out of 5 stars "\n  Still …
+
+``` r
+get_page_reviews(urls[4])
+```
+
+    ## # A tibble: 10 × 3
+    ##    title                           stars              text                      
+    ##    <chr>                           <chr>              <chr>                     
+    ##  1 Love it!! 💜                    5.0 out of 5 stars "\n  Love it!! 💜\n"      
+    ##  2 LOVE it                         5.0 out of 5 stars "\n  cult classic. So ugl…
+    ##  3 Perfect                         5.0 out of 5 stars "\n  Exactly what I asked…
+    ##  4 Love this movie!                5.0 out of 5 stars "\n  Great movie and sent…
+    ##  5 Love it                         5.0 out of 5 stars "\n  Love this movie. How…
+    ##  6 As described                    3.0 out of 5 stars "\n  Book is as described…
+    ##  7 GOSH!!!                         5.0 out of 5 stars "\n  Just watch the movie…
+    ##  8 Watch it right now              5.0 out of 5 stars "\n  You need to watch th…
+    ##  9 At this point it’s an addiction 5.0 out of 5 stars "\n  I watch this movie w…
+    ## 10 💕                              5.0 out of 5 stars "\n  Hands down, one of m…
+
+``` r
+get_page_reviews(urls[5])
+```
+
+    ## # A tibble: 10 × 3
+    ##    title                             stars              text                    
+    ##    <chr>                             <chr>              <chr>                   
+    ##  1 Good dumb movie                   5.0 out of 5 stars "\n  I really wanted to…
+    ##  2 funny                             5.0 out of 5 stars "\n  so funny and inven…
+    ##  3 Best Movie- Try to prove me wrong 5.0 out of 5 stars "\n  Best movie ever\n" 
+    ##  4 Vote For Pedro!!                  5.0 out of 5 stars "\n  What is NOT to lik…
+    ##  5 So Funny                          5.0 out of 5 stars "\n  This is such a goo…
+    ##  6 Best movie ever                   5.0 out of 5 stars "\n  It's napoleon dyna…
+    ##  7 Funny                             5.0 out of 5 stars "\n  Classic\n"         
+    ##  8 It’s broke!                       1.0 out of 5 stars "\n  I don’t know if yo…
+    ##  9 Stupid                            1.0 out of 5 stars "\n  What can I say? St…
+    ## 10 Not funny                         1.0 out of 5 stars "\n  Not funny\n"
+
+``` r
+bind_rows(
+  get_page_reviews(urls[1]),
+  get_page_reviews(urls[2]),
+  get_page_reviews(urls[3]),
+  get_page_reviews(urls[4]),
+  get_page_reviews(urls[5])
+)
+```
+
+    ## # A tibble: 50 × 3
+    ##    title                                                 stars   text           
+    ##    <chr>                                                 <chr>   <chr>          
+    ##  1 Good movie                                            5.0 ou… "\n  Weird sto…
+    ##  2 I Just everyone to know this....                      5.0 ou… "\n  VOTE FOR …
+    ##  3 the cobweb in his hair during the bike ramp scene lol 5.0 ou… "\n  5 stars f…
+    ##  4 Best quirky movie ever                                5.0 ou… "\n  You all k…
+    ##  5 Classic Film                                          5.0 ou… "\n  Had to or…
+    ##  6 hehehehe                                              5.0 ou… "\n  goodjobbo…
+    ##  7 Painful                                               1.0 ou… "\n  I think I…
+    ##  8 GRAND                                                 5.0 ou… "\n  GRAND\n"  
+    ##  9 Hello, 90s                                            5.0 ou… "\n  So nostal…
+    ## 10 Cult Classic                                          5.0 ou… "\n  Watched i…
+    ## # … with 40 more rows
+
+``` r
+f = function(x) {
+  z = x + y
+  z
+}
+
+x = 1
+y = 2
+
+f(x = y)
+```
+
+    ## [1] 4
